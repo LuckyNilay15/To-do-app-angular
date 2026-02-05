@@ -1,0 +1,210 @@
+:host {
+  --primary-color: #6200ea;
+  --secondary-color: #03dac6;
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --completed-color: #4caf50;
+  --pending-color: #ff9800;
+  --on-hold-color: #2196f3;
+  --error-color: #f44336;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: block;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.main-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+/* Input Section */
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.input-section input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input-section button.add-btn {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.input-section button.add-btn:hover {
+  background-color: #3700b3;
+}
+
+/* Filter Section */
+.filter-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.filter-section button {
+  padding: 6px 12px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.filter-section button:hover {
+  background-color: #eee;
+}
+
+.filter-section button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Todo List */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.todo-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-text {
+  font-size: 1rem;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Status Badges */
+.status-badge {
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.status-badge.pending {
+  background-color: var(--pending-color);
+}
+
+.status-badge.on-hold {
+  background-color: var(--on-hold-color);
+}
+
+.status-badge.completed {
+  background-color: var(--completed-color);
+}
+
+/* Action Buttons */
+.todo-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: white;
+}
+
+.complete-btn {
+  background-color: #e0e0e0;
+  color: var(--completed-color);
+}
+.complete-btn:hover {
+  background-color: var(--completed-color);
+  color: white;
+}
+
+.hold-btn {
+  background-color: #e0e0e0;
+  color: var(--on-hold-color);
+}
+.hold-btn:hover {
+  background-color: var(--on-hold-color);
+  color: white;
+}
+
+.resume-btn {
+  background-color: #e0e0e0;
+  color: var(--pending-color);
+}
+.resume-btn:hover {
+  background-color: var(--pending-color);
+  color: white;
+}
+
+.delete-btn {
+  background-color: #e0e0e0;
+  color: var(--error-color);
+}
+.delete-btn:hover {
+  background-color: var(--error-color);
+  color: white;
+}
+
+.empty-state {
+  text-align: center;
+  color: #888;
+  margin-top: 2rem;
+}
