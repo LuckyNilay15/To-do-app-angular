@@ -4,7 +4,8 @@
   </header>
 
   <section class="input-section">
-    <input type="text" placeholder="What needs to be done?" name="todoTitle" [(ngModel)]="todoTitle" (keyup.enter)="addTodo()">
+    <input type="text" placeholder="What needs to be done?" name="todoTitle" (ngModelChange)="filterTodos($event)"
+      [(ngModel)]="todoTitle" (keyup.enter)="addTodo()">
     <button class="add-btn" (click)="addTodo()">Add Task</button>
   </section>
 
@@ -16,36 +17,20 @@
   </section> -->
 
   <section class="todo-list">
-    @for (todo of todos(); track todo.id) {
+    @if(isfilterdatapresent()){
+    @for (todo of filteredtodos(); track todo.id) {
     <div class="todo-item" [class.completed]="todo.status === 'completed'">
       <div class="todo-content">
-        <span class="status-badge" [class]="todo.status">{{ todo.status }}</span>
+        <span class="status-badge" [ngClass]="todo.status">{{ todo.status }}</span>
         <span class="todo-text">{{ todo.title }}</span>
       </div>
-
-      <div class="todo-actions">
-        @if (todo.status !== 'completed') {
-        <!-- <button class="action-btn complete-btn" (click)="changeStatus(todo.id, 'completed')" title="Mark as Completed">
-          ✓
-        </button> -->
-        }
-        @if (todo.status === 'pending') {
-        <!-- <button class="action-btn hold-btn" (click)="changeStatus(todo.id, 'on-hold')" title="Put on Hold">
-          ⏸
-        </button> -->
-        }
-        @if (todo.status === 'on-hold') {
-        <!-- <button class="action-btn resume-btn" (click)="changeStatus(todo.id, 'pending')" title="Resume">
-          ▶
-        </button> -->
-        }
-      </div>
-    </div>
-    } @empty {
-    <div class="empty-state">
-      <p>No tasks found.</p>
     </div>
     }
+    }
+    @else {
+    <div class="no-tasks">No tasks found!!</div>
+    }
+
   </section>
 </main>
 
